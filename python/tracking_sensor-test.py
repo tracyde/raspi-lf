@@ -39,10 +39,10 @@ def check_pin(mod, pin):
         off_line(mod)
 
 def on_line(mod):
-    print "LineTracker: " + mod + " is on the line"
+    print "LineTracker: {} is on the line".format(mod)
 
 def off_line(mod):
-    print "Linetracker: " + mod + " is not on the line"
+    print "Linetracker: {} is not on the line".format(mod)
 
 print "Sensor-Test [press ctrl+c to end]"
  
