@@ -45,7 +45,7 @@ GPIO.setup(ENA_PIN, GPIO.OUT)
 GPIO.setup(ENB_PIN, GPIO.OUT)
 
 # Break between driving motors will be defined here (in seconds)
-sleeptime=3
+sleeptime=5
 
 # Helper Functions
 def forward(x):
