@@ -93,7 +93,7 @@ try:
         reverse(5)
         print "---------------------------------------"
         # Reset + Delay
-        time.sleep(delayTime)
+        time.sleep(sleeptime)
  
 # Scavenging work after the end of the program
 except KeyboardInterrupt:
