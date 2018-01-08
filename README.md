@@ -47,3 +47,30 @@ Connections to Raspberry Pi:
 | Tracking Mod 1 | 11               | GPIO 17| IO10            |
 | Tracking Mod 2 | 13               | GPIO 27| IO4             |
 | Tracking Mod 3 | 15               | GPIO 22| IO2             |
+
+## Motor Driver Test
+The motor driver test program is setup to use the following pins on the Raspberry Pi
+
+Connections to Raspberry Pi:
+
+| Component      | Raspberry Pi Pin | BCM    | Extension Board |
+|:---------------|:----------------:|:------:|:---------------:|
+| L298N (M1)     | 29               | GPIO 5 | IO6             |
+| L298N (M2)     | 31               | GPIO 6 | IO7             |
+| L298N (M4)     | 32               | GPIO 12| IO9             |
+| L298N (M3)     | 33               | GPIO 13| IO8             |
+| L298N (ENA)    | 36               | GPIO 16| IO5             |
+
+### L298N Control
+Pins IN1 and IN2 control forward and reverse of the right motor.
+ENA turns the right motors on and off.
+
+Pins IN3 and IN4 control forward and reverse of the left motor.
+ENB turns the left motors on and off.
+
+| ENA | IN1 | IN2 | IN3 | IN4 | ENB | DC Motor Status |
+|:---:|:---:|:---:|:---:|:---:|:---:|-----------------|
+| 0   | X   | X   | X   | X   | 0   | Stop            |
+| 1   | 1   | 1   | 1   | 1   | 1   | Braking         |
+| 1   | 0   | 1   | 0   | 1   | 1   | Forward         |
+| 1   | 1   | 0   | 1   | 0   | 1   | Backward        |
