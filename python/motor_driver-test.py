@@ -68,7 +68,7 @@ def forward(x):
     GPIO.output(LW_BWD, GPIO.LOW)
 
 def reverse(x):
-    print("Moving Forward")
+    print("Moving Backward")
     GPIO.output(RW_PWR, GPIO.HIGH)
     GPIO.output(LW_PWR, GPIO.HIGH)
     GPIO.output(RW_BWD, GPIO.HIGH)
