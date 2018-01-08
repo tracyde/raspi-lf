@@ -1,9 +1,16 @@
 #!/usr/bin/env python
 
 # Connections to Raspberry Pi:
-# Signal = GPIO24 [Pin 18]
-# +V     = 5V	  [Pin 4]
-# GND    = GND    [Pin 6]
+#
+# Tracking Module 1:
+#   Signal = GPIO17 [Pin 11]
+#
+# Tracking Module 2:
+#   Signal = GPIO27 [Pin 13]
+#
+# Tracking Module 3:
+#   Signal = GPIO22 [Pin 15]
+#
 
 # Needed modules will be imported and configured
 import RPi.GPIO as GPIO
@@ -11,24 +18,41 @@ import time
  
 GPIO.setmode(GPIO.BCM)
  
-# Declaration of the input pin which is connected with the sensor
-GPIO_PIN = 24
-GPIO.setup(GPIO_PIN, GPIO.IN, pull_up_down = GPIO.PUD_UP)
- 
+# Declaration of the input pins which are connected to the sensors
+TM1_PIN = 17
+TM2_PIN = 27
+TM3_PIN = 22
+
+# Setup the declared pins
+GPIO.setup(TM1_PIN, GPIO.IN, pull_up_down = GPIO.PUD_UP)
+GPIO.setup(TM2_PIN, GPIO.IN, pull_up_down = GPIO.PUD_UP)
+GPIO.setup(TM3_PIN, GPIO.IN, pull_up_down = GPIO.PUD_UP)
+
 # Break between the results will be defined here (in seconds)
 delayTime = 0.5
- 
+
+# Helper Functions
+def check_pin(mod, pin):
+    if GPIO.input(pin) == True:
+        on_line(mod)
+    else:
+        off_line(mod)
+
+def on_line(mod):
+    print "LineTracker: " + mod + " is on the line"
+
+def off_line(mod):
+    print "Linetracker: " + mod + " is not on the line"
+
 print "Sensor-Test [press ctrl+c to end]"
  
 # main program loop
 try:
         while True:
-            if GPIO.input(GPIO_PIN) == True:
-                print "LineTracker is on the line"
-            else:
-                print "Linetracker is not on the line"
+            check_pin(1, TM1_PIN)
+            check_pin(2, TM2_PIN)
+            check_pin(3, TM3_PIN)
             print "---------------------------------------"
- 
             # Reset + Delay
             time.sleep(delayTime)
  
