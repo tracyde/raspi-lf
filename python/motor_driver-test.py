@@ -63,8 +63,8 @@ def forward(x):
     GPIO.output(RW_PWR, GPIO.LOW)
     GPIO.output(LW_PWR, GPIO.LOW)
     GPIO.output(RW_FWD, GPIO.LOW)
-    GPIO.output(RW_BWD, GPIO.LOW)
     GPIO.output(LW_FWD, GPIO.LOW)
+    GPIO.output(RW_BWD, GPIO.LOW)
     GPIO.output(LW_BWD, GPIO.LOW)
 
 def reverse(x):
@@ -82,8 +82,8 @@ def reverse(x):
     GPIO.output(RW_PWR, GPIO.LOW)
     GPIO.output(LW_PWR, GPIO.LOW)
     GPIO.output(RW_FWD, GPIO.LOW)
-    GPIO.output(RW_BWD, GPIO.LOW)
     GPIO.output(LW_FWD, GPIO.LOW)
+    GPIO.output(RW_BWD, GPIO.LOW)
     GPIO.output(LW_BWD, GPIO.LOW)
 
 # main program loop
