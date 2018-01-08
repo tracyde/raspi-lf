@@ -48,14 +48,14 @@ print "Sensor-Test [press ctrl+c to end]"
  
 # main program loop
 try:
-        while True:
-            check_pin(1, TM1_PIN)
-            check_pin(2, TM2_PIN)
-            check_pin(3, TM3_PIN)
-            print "---------------------------------------"
-            # Reset + Delay
-            time.sleep(delayTime)
+    while True:
+        check_pin(1, TM1_PIN)
+        check_pin(2, TM2_PIN)
+        check_pin(3, TM3_PIN)
+        print "---------------------------------------"
+        # Reset + Delay
+        time.sleep(delayTime)
  
 # Scavenging work after the end of the program
 except KeyboardInterrupt:
-        GPIO.cleanup()
+    GPIO.cleanup()
