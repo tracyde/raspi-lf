@@ -3,8 +3,8 @@
 # Connections to Raspberry Pi:
 #
 # L298N
-#   IN1 = GPIO5  [Pin 29]
-#   IN2 = GPIO6  [Pin 31]
+#   IN1 = GPIO6  [Pin 31]
+#   IN2 = GPIO5  [Pin 29]
 #   IN3 = GPIO13 [Pin 33]
 #   IN4 = GPIO12 [Pin 32]
 #   ENA = GPIO16 [Pin 36]
@@ -19,8 +19,8 @@ import RPi.GPIO as GPIO
 GPIO.setmode(GPIO.BCM)
 
 # Declaration of the input pins which are connected to the sensors
-IN1_PIN = 5
-IN2_PIN = 6
+IN1_PIN = 6
+IN2_PIN = 5
 IN3_PIN = 13
 IN4_PIN = 12
 ENA_PIN = 16

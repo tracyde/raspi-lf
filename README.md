@@ -28,8 +28,8 @@ Line Follower Project for Raspberry Pi
 | Tracking Mod 3 | 15               | GPIO 22| IO2             |
 | IR Receiver    | 16               | GPIO 23| IO12            |
 | Servo Motor    | 18               | GPIO 24| IO3             |
-| L298N (M1)     | 29               | GPIO 5 | IO6             |
-| L298N (M2)     | 31               | GPIO 6 | IO7             |
+| L298N (M1)     | 31               | GPIO 6 | IO7             |
+| L298N (M2)     | 29               | GPIO 5 | IO6             |
 | L298N (M4)     | 32               | GPIO 12| IO9             |
 | L298N (M3)     | 33               | GPIO 13| IO8             |
 | L298N (ENA)    | 36               | GPIO 16| IO5             |
@@ -55,8 +55,8 @@ Connections to Raspberry Pi:
 
 | Component      | Raspberry Pi Pin | BCM    | Extension Board |
 |:---------------|:----------------:|:------:|:---------------:|
-| L298N (M1)     | 29               | GPIO 5 | IO6             |
-| L298N (M2)     | 31               | GPIO 6 | IO7             |
+| L298N (M1)     | 31               | GPIO 6 | IO7             |
+| L298N (M2)     | 29               | GPIO 5 | IO6             |
 | L298N (M4)     | 32               | GPIO 12| IO9             |
 | L298N (M3)     | 33               | GPIO 13| IO8             |
 | L298N (ENA)    | 36               | GPIO 16| IO5             |
