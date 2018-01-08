@@ -89,8 +89,8 @@ def reverse(x):
 # main program loop
 try:
     while True:
-        forward(5)
-        reverse(5)
+        forward(1)
+        reverse(1)
         print "---------------------------------------"
         # Reset + Delay
         time.sleep(sleeptime)
