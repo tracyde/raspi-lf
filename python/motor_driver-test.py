@@ -44,14 +44,18 @@ LW_FWD = IN4_PIN
 LW_BWD = IN3_PIN
 LW_ENA = GPIO.PWM(ENB_PIN, 100)
 
+# Go ahead and start the PWM
+RW_ENA.start(0)
+LW_ENA.start(0)
+
 # Break between driving motors will be defined here (in seconds)
 sleeptime=5
 
 # Helper Functions
 def forward(x):
     print("Moving Forward")
-    RW_ENA.start(50)
-    LW_ENA.start(50)
+    RW_ENA.ChangeDutyCycle(50)
+    LW_ENA.ChangeDutyCycle(50)
     GPIO.output(RW_FWD, GPIO.HIGH)
     GPIO.output(LW_FWD, GPIO.HIGH)
     time.sleep(x)
@@ -60,8 +64,8 @@ def forward(x):
     GPIO.output(LW_BWD, GPIO.HIGH)
     time.sleep(0.5)
     print("Stopping")
-    RW_ENA.stop()
-    LW_ENA.stop()
+    RW_ENA.ChangeDutyCycle(0)
+    LW_ENA.ChangeDutyCycle(0)
     GPIO.output(RW_FWD, GPIO.LOW)
     GPIO.output(LW_FWD, GPIO.LOW)
     GPIO.output(RW_BWD, GPIO.LOW)
@@ -69,8 +73,8 @@ def forward(x):
 
 def reverse(x):
     print("Moving Backward")
-    RW_ENA.start(50)
-    LW_ENA.start(50)
+    RW_ENA.ChangeDutyCycle(50)
+    LW_ENA.ChangeDutyCycle(50)
     GPIO.output(RW_BWD, GPIO.HIGH)
     GPIO.output(LW_BWD, GPIO.HIGH)
     time.sleep(x)
@@ -79,8 +83,8 @@ def reverse(x):
     GPIO.output(LW_FWD, GPIO.HIGH)
     time.sleep(0.5)
     print("Stopping")
-    RW_ENA.stop()
-    LW_ENA.stop()
+    RW_ENA.ChangeDutyCycle(0)
+    LW_ENA.ChangeDutyCycle(0)
     GPIO.output(RW_FWD, GPIO.LOW)
     GPIO.output(LW_FWD, GPIO.LOW)
     GPIO.output(RW_BWD, GPIO.LOW)
@@ -97,4 +101,6 @@ try:
  
 # Scavenging work after the end of the program
 except KeyboardInterrupt:
+    RW_ENA.stop()
+    LW_ENA.stop()
     GPIO.cleanup()
