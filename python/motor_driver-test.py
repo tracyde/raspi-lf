@@ -77,10 +77,10 @@ def forward(x):
 
 def turn_right(x):
     print("Turning Right")
-    RW_ENA.ChangeDutyCycle(10)
-    LW_ENA.ChangeDutyCycle(70)
-    GPIO.output(RW_FWD, GPIO.HIGH)
-    GPIO.output(RW_BWD, GPIO.LOW)
+    RW_ENA.ChangeDutyCycle(50)
+    LW_ENA.ChangeDutyCycle(50)
+    GPIO.output(RW_FWD, GPIO.LOW)
+    GPIO.output(RW_BWD, GPIO.HIGH)
     GPIO.output(LW_FWD, GPIO.HIGH)
     GPIO.output(LW_BWD, GPIO.LOW)
     time.sleep(x)
@@ -100,12 +100,12 @@ def turn_right(x):
 
 def turn_left(x):
     print("Turning Left")
-    RW_ENA.ChangeDutyCycle(70)
-    LW_ENA.ChangeDutyCycle(10)
+    RW_ENA.ChangeDutyCycle(50)
+    LW_ENA.ChangeDutyCycle(50)
     GPIO.output(RW_FWD, GPIO.HIGH)
     GPIO.output(RW_BWD, GPIO.LOW)
-    GPIO.output(LW_FWD, GPIO.HIGH)
-    GPIO.output(LW_BWD, GPIO.LOW)
+    GPIO.output(LW_FWD, GPIO.LOW)
+    GPIO.output(LW_BWD, GPIO.HIGH)
     time.sleep(x)
     print("Braking")
     GPIO.output(RW_FWD, GPIO.HIGH)
