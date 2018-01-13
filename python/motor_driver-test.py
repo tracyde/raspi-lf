@@ -71,6 +71,44 @@ def forward(x):
     GPIO.output(RW_BWD, GPIO.LOW)
     GPIO.output(LW_BWD, GPIO.LOW)
 
+def turn_right(x):
+    print("Turning Right")
+    RW_ENA.ChangeDutyCycle(10)
+    LW_ENA.ChangeDutyCycle(70)
+    GPIO.output(RW_FWD, GPIO.HIGH)
+    GPIO.output(LW_FWD, GPIO.HIGH)
+    time.sleep(x)
+    print("Braking")
+    GPIO.output(RW_BWD, GPIO.HIGH)
+    GPIO.output(LW_BWD, GPIO.HIGH)
+    time.sleep(0.5)
+    print("Stopping")
+    RW_ENA.ChangeDutyCycle(0)
+    LW_ENA.ChangeDutyCycle(0)
+    GPIO.output(RW_FWD, GPIO.LOW)
+    GPIO.output(LW_FWD, GPIO.LOW)
+    GPIO.output(RW_BWD, GPIO.LOW)
+    GPIO.output(LW_BWD, GPIO.LOW)
+
+def turn_left(x):
+    print("Turning Right")
+    RW_ENA.ChangeDutyCycle(70)
+    LW_ENA.ChangeDutyCycle(10)
+    GPIO.output(RW_FWD, GPIO.HIGH)
+    GPIO.output(LW_FWD, GPIO.HIGH)
+    time.sleep(x)
+    print("Braking")
+    GPIO.output(RW_BWD, GPIO.HIGH)
+    GPIO.output(LW_BWD, GPIO.HIGH)
+    time.sleep(0.5)
+    print("Stopping")
+    RW_ENA.ChangeDutyCycle(0)
+    LW_ENA.ChangeDutyCycle(0)
+    GPIO.output(RW_FWD, GPIO.LOW)
+    GPIO.output(LW_FWD, GPIO.LOW)
+    GPIO.output(RW_BWD, GPIO.LOW)
+    GPIO.output(LW_BWD, GPIO.LOW)
+
 def reverse(x):
     print("Moving Backward")
     RW_ENA.ChangeDutyCycle(50)
@@ -94,6 +132,8 @@ def reverse(x):
 try:
     while True:
         forward(1)
+        turn_right(1)
+        turn_left(1)
         reverse(1)
         print "---------------------------------------"
         # Reset + Delay
