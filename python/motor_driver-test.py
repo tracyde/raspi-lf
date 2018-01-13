@@ -26,16 +26,6 @@ IN4_PIN = 12
 ENA_PIN = 16
 ENB_PIN = 26
 
-# IN1 | IN2 | ENA -- Controls Right Motor (Alias values)
-RW_FWD = IN2_PIN
-RW_BWD = IN1_PIN
-RW_PWR = ENA_PIN
-
-# IN3 | IN4 | ENB -- Controls Left Motor (Alias values)
-LW_FWD = IN4_PIN
-LW_BWD = IN3_PIN
-LW_PWR = ENB_PIN
-
 # Setup the declared pins
 GPIO.setup(IN1_PIN, GPIO.OUT)
 GPIO.setup(IN2_PIN, GPIO.OUT)
@@ -44,14 +34,24 @@ GPIO.setup(IN4_PIN, GPIO.OUT)
 GPIO.setup(ENA_PIN, GPIO.OUT)
 GPIO.setup(ENB_PIN, GPIO.OUT)
 
+# IN1 | IN2 | ENA -- Controls Right Motor (Alias values)
+RW_FWD = IN2_PIN
+RW_BWD = IN1_PIN
+RW_ENA = GPIO.PWM(ENA_PIN, 100)
+
+# IN3 | IN4 | ENB -- Controls Left Motor (Alias values)
+LW_FWD = IN4_PIN
+LW_BWD = IN3_PIN
+LW_ENA = GPIO.PWM(ENB_PIN, 100)
+
 # Break between driving motors will be defined here (in seconds)
 sleeptime=5
 
 # Helper Functions
 def forward(x):
     print("Moving Forward")
-    GPIO.output(RW_PWR, GPIO.HIGH)
-    GPIO.output(LW_PWR, GPIO.HIGH)
+    RW_ENA.start(50)
+    LW_ENA.start(50)
     GPIO.output(RW_FWD, GPIO.HIGH)
     GPIO.output(LW_FWD, GPIO.HIGH)
     time.sleep(x)
@@ -60,8 +60,8 @@ def forward(x):
     GPIO.output(LW_BWD, GPIO.HIGH)
     time.sleep(0.5)
     print("Stopping")
-    GPIO.output(RW_PWR, GPIO.LOW)
-    GPIO.output(LW_PWR, GPIO.LOW)
+    RW_ENA.stop()
+    LW_ENA.stop()
     GPIO.output(RW_FWD, GPIO.LOW)
     GPIO.output(LW_FWD, GPIO.LOW)
     GPIO.output(RW_BWD, GPIO.LOW)
@@ -69,8 +69,8 @@ def forward(x):
 
 def reverse(x):
     print("Moving Backward")
-    GPIO.output(RW_PWR, GPIO.HIGH)
-    GPIO.output(LW_PWR, GPIO.HIGH)
+    RW_ENA.start(50)
+    LW_ENA.start(50)
     GPIO.output(RW_BWD, GPIO.HIGH)
     GPIO.output(LW_BWD, GPIO.HIGH)
     time.sleep(x)
@@ -79,8 +79,8 @@ def reverse(x):
     GPIO.output(LW_FWD, GPIO.HIGH)
     time.sleep(0.5)
     print("Stopping")
-    GPIO.output(RW_PWR, GPIO.LOW)
-    GPIO.output(LW_PWR, GPIO.LOW)
+    RW_ENA.stop()
+    LW_ENA.stop()
     GPIO.output(RW_FWD, GPIO.LOW)
     GPIO.output(LW_FWD, GPIO.LOW)
     GPIO.output(RW_BWD, GPIO.LOW)
