@@ -91,7 +91,7 @@ def turn_right(x):
     GPIO.output(LW_BWD, GPIO.LOW)
 
 def turn_left(x):
-    print("Turning Right")
+    print("Turning Left")
     RW_ENA.ChangeDutyCycle(70)
     LW_ENA.ChangeDutyCycle(10)
     GPIO.output(RW_FWD, GPIO.HIGH)
