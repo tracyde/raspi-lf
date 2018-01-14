@@ -90,8 +90,8 @@ def check_pin(pin):
 
 def forward():
     print("Moving Forward")
-    RW_ENA.ChangeDutyCycle(50)
-    LW_ENA.ChangeDutyCycle(50)
+    RW_ENA.ChangeDutyCycle(20)
+    LW_ENA.ChangeDutyCycle(20)
     GPIO.output(RW_FWD, GPIO.HIGH)
     GPIO.output(RW_BWD, GPIO.LOW)
     GPIO.output(LW_FWD, GPIO.HIGH)
@@ -99,8 +99,8 @@ def forward():
 
 def right():
     print("Turning Right")
-    RW_ENA.ChangeDutyCycle(50)
-    LW_ENA.ChangeDutyCycle(50)
+    RW_ENA.ChangeDutyCycle(20)
+    LW_ENA.ChangeDutyCycle(20)
     GPIO.output(RW_FWD, GPIO.LOW)
     GPIO.output(RW_BWD, GPIO.HIGH)
     GPIO.output(LW_FWD, GPIO.HIGH)
@@ -108,8 +108,8 @@ def right():
 
 def left():
     print("Turning Left")
-    RW_ENA.ChangeDutyCycle(50)
-    LW_ENA.ChangeDutyCycle(50)
+    RW_ENA.ChangeDutyCycle(20)
+    LW_ENA.ChangeDutyCycle(20)
     GPIO.output(RW_FWD, GPIO.HIGH)
     GPIO.output(RW_BWD, GPIO.LOW)
     GPIO.output(LW_FWD, GPIO.LOW)
@@ -151,12 +151,12 @@ try:
         #elif check_pin(TM1_PIN) and check_pin(TM2_PIN) and check_pin(TM3_PIN):
         #    print("Stopping our run")
         #    complete = True
-        else:
-            print("Unable To Find Line... Stopping")
-            stop()
+        #else:
+        #    print("Unable To Find Line... Stopping")
+        #    stop()
         
         # Reset + Delay
-        time.sleep(delayTime)
+        #time.sleep(delayTime)
 
     # Run is over
     cleanup()
