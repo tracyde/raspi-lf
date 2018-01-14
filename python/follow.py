@@ -80,6 +80,7 @@ LW_ENA.start(0)
 
 # Break between the results will be defined here (in seconds)
 delayTime = 0.5
+dutyCycle = 30
 
 # Helper Functions
 def check_pin(pin):
@@ -90,8 +91,8 @@ def check_pin(pin):
 
 def forward():
     print("Moving Forward")
-    RW_ENA.ChangeDutyCycle(20)
-    LW_ENA.ChangeDutyCycle(20)
+    RW_ENA.ChangeDutyCycle(dutyCycle)
+    LW_ENA.ChangeDutyCycle(dutyCycle)
     GPIO.output(RW_FWD, GPIO.HIGH)
     GPIO.output(RW_BWD, GPIO.LOW)
     GPIO.output(LW_FWD, GPIO.HIGH)
@@ -99,8 +100,8 @@ def forward():
 
 def right():
     print("Turning Right")
-    RW_ENA.ChangeDutyCycle(20)
-    LW_ENA.ChangeDutyCycle(20)
+    RW_ENA.ChangeDutyCycle(dutyCycle)
+    LW_ENA.ChangeDutyCycle(dutyCycle)
     GPIO.output(RW_FWD, GPIO.LOW)
     GPIO.output(RW_BWD, GPIO.HIGH)
     GPIO.output(LW_FWD, GPIO.HIGH)
@@ -108,8 +109,8 @@ def right():
 
 def left():
     print("Turning Left")
-    RW_ENA.ChangeDutyCycle(20)
-    LW_ENA.ChangeDutyCycle(20)
+    RW_ENA.ChangeDutyCycle(dutyCycle)
+    LW_ENA.ChangeDutyCycle(dutyCycle)
     GPIO.output(RW_FWD, GPIO.HIGH)
     GPIO.output(RW_BWD, GPIO.LOW)
     GPIO.output(LW_FWD, GPIO.LOW)
