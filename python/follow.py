@@ -80,7 +80,7 @@ LW_ENA.start(0)
 
 # Break between the results will be defined here (in seconds)
 delayTime = 0.5
-dutyCycle = 30
+dutyCycle = 50
 
 # Helper Functions
 def check_pin(pin):
