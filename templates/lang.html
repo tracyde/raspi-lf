@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Line Follower Robot</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../{{.Assets}}/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="../{{.Assets}}/css/loading.css"/>
+  <link rel="stylesheet" type="text/css" href="../{{.Assets}}/css/loading-btn.css"/>
+  <link rel="stylesheet" href="../{{.Assets}}/css/main.css">
+  <script src="../{{.Assets}}/js/jquery.min.js"></script>
+  <script src="../{{.Assets}}/js/popper.min.js"></script>
+  <script src="../{{.Assets}}/js/bootstrap.min.js"></script>
+</head>
+<body>
+  
+  <!-- Navigation Bar Start -->
+  <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <a class="navbar-brand" href="/">Quest of the Line Follower</a>
+    <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#collapsibleNavbar" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="icon-bar top-bar"></span>
+      <span class="icon-bar middle-bar"></span>
+      <span class="icon-bar bottom-bar"></span>				
+    </button>
+    
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="/run/python">Python</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/run/golang">GoLang</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <br>
+  <!-- Navigation Bar END -->
+
+  <div class="container">
+    <h2>{{.Language}}</h2>
+    <br>
+    <div class="card bg-light text-dark">
+      <div class="card-body">
+        <h4 class="card-title">Follower</h4>
+        <p class="card-text">Run the track!</p>
+        <a href="/run/{{.Language}}/follower" class="btn btn-success ld-ext-right {{if .Status.Running}}disabled active running{{end}}">Start <div class="ld ld-ring ld-spin"></div></a>
+        <a href="/run/{{.Language}}/follower/stop" class="btn btn-danger">Stop</a>
+      </div>
+    </div>
+    <br>
+    <div class="card bg-light text-dark">
+      <div class="card-body">
+        <h4 class="card-title">Motor Test</h4>
+        <p class="card-text">Test the motor actions</p>
+        <a href="/run/{{.Language}}/motor_driver-test" class="btn btn-success ld-ext-right {{if .Status.Running}}disabled active running{{end}}">Start <div class="ld ld-ring ld-spin"></div></a>
+        <a href="/run/{{.Language}}/motor_driver-test/stop" class="btn btn-danger">Stop</a>
+      </div>
+    </div>
+    <br>
+    <div class="card bg-light text-dark">
+      <div class="card-body">
+        <h4 class="card-title">IR Tracker Test</h4>
+        <p class="card-text">Test the IR sensors</p>
+        <a href="/run/{{.Language}}/tracking_sensor-test" class="btn btn-success ld-ext-right {{if .Status.Running}}disabled active running{{end}}">Start <div class="ld ld-ring ld-spin"></div></a>
+        <a href="/run/{{.Language}}/tracking_sensor-test/stop" class="btn btn-danger">Stop</a>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
