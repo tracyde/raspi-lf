@@ -100,6 +100,15 @@ def forward():
 
 def right():
     print("Turning Right")
+    RW_ENA.ChangeDutyCycle(10)
+    LW_ENA.ChangeDutyCycle(dutyCycle)
+    GPIO.output(RW_FWD, GPIO.HIGH)
+    GPIO.output(RW_BWD, GPIO.LOW)
+    GPIO.output(LW_FWD, GPIO.HIGH)
+    GPIO.output(LW_BWD, GPIO.LOW)
+
+def hard_right():
+    print("Turning Hard Right")
     RW_ENA.ChangeDutyCycle(dutyCycle)
     LW_ENA.ChangeDutyCycle(dutyCycle)
     GPIO.output(RW_FWD, GPIO.LOW)
@@ -109,6 +118,15 @@ def right():
 
 def left():
     print("Turning Left")
+    RW_ENA.ChangeDutyCycle(dutyCycle)
+    LW_ENA.ChangeDutyCycle(10)
+    GPIO.output(RW_FWD, GPIO.HIGH)
+    GPIO.output(RW_BWD, GPIO.LOW)
+    GPIO.output(LW_FWD, GPIO.HIGH)
+    GPIO.output(LW_BWD, GPIO.LOW)
+
+def hard_left():
+    print("Turning Hard Left")
     RW_ENA.ChangeDutyCycle(dutyCycle)
     LW_ENA.ChangeDutyCycle(dutyCycle)
     GPIO.output(RW_FWD, GPIO.HIGH)
@@ -145,12 +163,14 @@ try:
             forward()
         elif check_pin(TM3_PIN):
             print("Turn Left")
+            left()
             while check_pin(TM3_PIN):
-                left()
+                hard_left()
         elif check_pin(TM1_PIN):
             print("Turn Right")
+            right()
             while check_pin(TM1_PIN):
-                right()
+                hard_right()
     # Run is over
     cleanup()
 
