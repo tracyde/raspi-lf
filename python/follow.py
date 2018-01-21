@@ -137,7 +137,10 @@ print "Naive Line Follower [press ctrl+c to end]"
 try:
     complete = False
     while not complete:
-        if check_pin(TM2_PIN):
+        if check_pin(TM1_PIN) and check_pin(TM2_PIN) and check_pin(TM3_PIN):
+           print("Stopping our run")
+           complete = True
+        elif check_pin(TM2_PIN):
             print("Found line")
             forward()
         elif check_pin(TM3_PIN):
@@ -148,17 +151,6 @@ try:
             print("Turn Right")
             while check_pin(TM1_PIN):
                 right()
-        #
-        #elif check_pin(TM1_PIN) and check_pin(TM2_PIN) and check_pin(TM3_PIN):
-        #    print("Stopping our run")
-        #    complete = True
-        #else:
-        #    print("Unable To Find Line... Stopping")
-        #    stop()
-        
-        # Reset + Delay
-        #time.sleep(delayTime)
-
     # Run is over
     cleanup()
 
